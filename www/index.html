@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title></title>
+
+  <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <!-- ionic/angularjs js -->
+  <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+  <!-- cordova script (this will be a 404 during development) -->
+  <script src="cordova.js"></script>
+
+  <!-- your app's js -->
+  <script src="js/app.js"></script>
+</head>
+<body ng-app="starter" >
+  <div>
+    <ion-header-bar class="bar-positive">
+      <h1 class="title"> Tasks </h1>
+    </ion-header-bar> 
+    <ion-content ng-controller="TodoCtrl">
+      <!-- our list and list items -->
+      <ion-list>
+        <ion-item ng-repeat="taskItem in tasks">
+      
+          <ion-item ng-click="mostrarDescripciones(taskItem.title)" id="{{taskItem.title}}"> 
+            {{taskItem.title}}
+          </ion-item>
+         
+              
+               <label class="toggle toggle-assertive">
+                 <input type="checkbox">
+                 <div class="track">
+                   <div class="handle"></div>
+                 </div>
+               </label>
+            
+          
+         
+          <ion-item class="descripcionOculta" >
+            {{taskItem.description}}
+          </ion-item>
+        </ion-item>
+
+      </ion-list>
+      <a ng-click="showForm()" ng-hide="!showFormFlag" class="button button-full button-positive">
+        Mostrar Form
+      </a>
+      <a ng-click="showForm()" ng-hide="showFormFlag" class="button button-full button-positive">
+        Cerrar Form
+      </a>
+      <div ng-hide="showFormFlag" class="formulario">
+        <form>
+          <h4>Nombre de la tarea:</h4> <br>
+          <div class="inputsStyle"> 
+            <input ng-model="title" type="text" name="title" autofocus></div>
+            <br>
+            <h4>Breve descripcion:</h4> <br>
+            <div class="inputsStyle">
+              <input ng-model="description" type="text" name="description">
+            </div>
+            <a  ng-click="agregarTask(title,description)"  ng-hide="showFormFlag" class="button button-full button-positive"> Agregar Task</a>
+          </form>
+        </div>
+      </ion-content>
+    </div>
+
+
+
+
+  </body>
+  </html>

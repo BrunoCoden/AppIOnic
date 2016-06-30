@@ -1,0 +1,16 @@
+.formulario{
+	max-width: 90%;
+	margin-right: auto;
+	margin-left: auto;
+}
+.inputsStyle{
+	border-width:1px;
+	border-style: dotted;
+	border-color: grey;
+}
+.ng-pristine{
+	width:100%;
+}
+.descripcionOculta {
+	display: none;
+}
